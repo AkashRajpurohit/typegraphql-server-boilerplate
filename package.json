@@ -4,7 +4,7 @@
   "description": "Typegraphql Server Boilerplate code",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec ts-node src/index.ts"
+    "start": "ts-node-dev --respawn src/index.ts"
   },
   "keywords": [],
   "author": "Akash Rajpurohit <akash009.dev@gmail.com> (https://akashrajpurohit.cf/)",
@@ -24,8 +24,8 @@
     "@types/express": "4.16.1",
     "@types/graphql": "14.0.7",
     "@types/node": "11.9.6",
-    "nodemon": "1.18.10",
     "ts-node": "8.0.2",
+    "ts-node-dev": "1.0.0-pre.32",
     "typescript": "3.3.3333"
   }
 }
