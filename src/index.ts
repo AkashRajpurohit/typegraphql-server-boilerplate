@@ -6,26 +6,13 @@ import session from 'express-session'
 import 'reflect-metadata'
 import { buildSchema, formatArgumentValidationError } from 'type-graphql'
 import { createConnection } from 'typeorm'
-import { ChangePasswordResolver } from './modules/user/ChangePassword'
-import { ConfirmUserResolver } from './modules/user/ConfirmUser'
-import { ForgotPasswordResolver } from './modules/user/ForgotPassword'
-import { LoginResolver } from './modules/user/Login'
-import { MeResolver } from './modules/user/Me'
-import { RegisterResolver } from './modules/user/Register'
 import { redis } from './redis'
 
 const main = async () => {
   await createConnection()
 
   const schema = await buildSchema({
-    resolvers: [
-      RegisterResolver,
-      LoginResolver,
-      MeResolver,
-      ConfirmUserResolver,
-      ForgotPasswordResolver,
-      ChangePasswordResolver,
-    ],
+    resolvers: [__dirname + '/modules/**/*.ts'],
   })
 
   const apolloServer = new ApolloServer({
